@@ -14,6 +14,7 @@ void insertionSort(int arr[], int n) {
         arr[j + 1] = key;
     }
 }
+
 void printArray(int arr[], int n) {
     for (int i = 0; i < n; i++)
         cout << arr[i] << " ";
@@ -21,8 +22,16 @@ void printArray(int arr[], int n) {
 }
 
 int main() {
-    int arr[] = {12, 11, 13, 5, 6};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int n;
+    cout << "Введіть кількість елементів масиву: ";
+    cin >> n;
+
+    int* arr = new int[n];  // Динамічний масив
+
+    cout << "Введіть " << n << " елемент(ів): ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
 
     cout << "Початковий масив: ";
     printArray(arr, n);
@@ -31,6 +40,8 @@ int main() {
 
     cout << "Відсортований масив: ";
     printArray(arr, n);
+
+    delete[] arr;  // Звільняємо пам'ять
 
     return 0;
 }
