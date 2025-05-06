@@ -20,16 +20,26 @@ void printArray(int arr[], int n) {
 }
 
 int main() {
-    int arr[] = {64, 34, 25, 12, 22, 11, 90};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    
-    cout << "Original array:\n";
+    int n;
+    cout << "Введіть кількість елементів масиву: ";
+    cin >> n;
+
+    int* arr = new int[n];  // Динамічний масив
+
+    cout << "Введіть " << n << " елемент(ів): ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    cout << "Початковий масив:\n";
     printArray(arr, n);
 
     bubbleSort(arr, n);
 
-    cout << "Sorted array:\n";
+    cout << "Відсортований масив:\n";
     printArray(arr, n);
+
+    delete[] arr;  // Звільняємо пам'ять
 
     return 0;
 }
